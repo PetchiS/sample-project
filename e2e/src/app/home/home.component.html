@@ -1,0 +1,141 @@
+<div class="w-100">
+    <!-- h-100 -->
+    <div class="w-100" style="">
+        <!-- height:40% -->
+        <div class="row m-0">
+            <div class="font-bold p-2">
+                <h1 style="color:purple;">{{selectedModule}}</h1>
+            </div>
+            <div class="position-absolute p-3" style="right:0;">
+                <div class="ui-inputgroup">
+                    <p-autoComplete [(ngModel)]="searchInput" [suggestions]="suggestionList" placeholder="Type Search" (completeMethod)="searchTech($event)">
+                    </p-autoComplete>
+                    <span class="ui-inputgroup-addon" style="cursor: pointer;">
+                        <i style="font-size:20px !important" class="fa fa-search" aria-hidden="true"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="row m-0">
+            <div class="card-carousel">
+                <p-carousel [value]="totalCardData" [numVisible]="3" [numScroll]="3">
+                    <ng-template let-card pTemplate="item">
+                        <p-card>
+                            <i class="fa fa-user-circle card-display p-2 card-icon" aria-hidden="true" [ngStyle]="{'color': card.color}"></i>
+                            <div class="card-display p-2">{{ card.number}}</div>
+                            <div class="card-display p-2 card-footer-p" [ngStyle]="{'background': card.color}">
+                                {{card.text}}
+                            </div>
+                        </p-card>
+                    </ng-template>
+                </p-carousel>
+            </div>
+            <div class="p-4">
+                <p-card class="status-card">
+                    <div class="row ml-0" style="border-bottom: 1px solid lightgrey;">
+                        <div>Data upload Status</div>
+                        <div class="ml-auto mr-3">
+                            <i class="fa fa-chevron-left" [ngClass]="hidePrev?'fa-disabled':''" aria-hidden="true" (click)="displayPrevious()"></i>
+                            <i class="fa fa-chevron-right" [ngClass]="hideNext?'fa-disabled':''" aria-hidden="true" (click)="displayNext()"></i>
+                        </div>
+                    </div>
+                    <div class="row m-0 py-4">
+                        <div class="progress-bar col-6 p-4">{{uploadPercent}}%</div>
+                        <div class="col-6">
+                            {{uploadText}}
+                        </div>
+                    </div>
+                </p-card>
+            </div>
+        </div>
+    </div>
+    <div class="row m-4" style="">
+        <!-- height:40% -->
+        <div>
+            <p-card class="module-card">
+                <span class="module-header">Module Details</span>
+                <div class="details-div my-4">
+                    <div class="row my-3">
+                        <div class="col-6">
+                            <label>Module ID</label> {{moduleDetails.id}}
+                        </div>
+                        <div class="col-6">
+                            <label>Region</label> {{moduleDetails.region}}
+                        </div>
+                    </div>
+                    <div class="row my-3">
+                        <div class="col-6">
+                            <label>Created Date</label> {{moduleDetails.createdDate}}
+                        </div>
+                        <div class="col-6">
+                            <label>Status</label>
+                            <button pButton type="button" class="ui-button-rounded ui-button-warning btn-addon">
+                                {{moduleDetails.status}}
+                            </button>
+                            <!-- <button>{{moduleDetails.status}}</button> -->
+                        </div>
+                    </div>
+                    <div class="row my-3">
+                        <div class="col-6">
+                            <label>Updated Date</label> {{moduleDetails.updatedDate}}
+                        </div>
+                        <div class="col-6">
+                            <label>Module Owner</label> {{moduleDetails.owner}}
+                        </div>
+                    </div>
+                </div>
+            </p-card>
+        </div>
+        <div class="tab-content px-4" style="width:476px">
+            <p-tabView (onChange)="onTabChange($event)">
+                <p-tabPanel header="Product 1">
+                    <p-chart type="line" [data]="data"></p-chart>
+                </p-tabPanel>
+                <p-tabPanel header="Product 2">
+                    <p-chart type="line" [data]="data"></p-chart>
+                </p-tabPanel>
+                <p-tabPanel header="Product 3">
+                    <p-chart type="line" [data]="data"></p-chart>
+                </p-tabPanel>
+            </p-tabView>
+        </div>
+    </div>
+    <div class="w-100 px-4">
+        <div class="row m-0 module-table-header d-flex">
+            <div class="font-bold p-2">
+                <h1 style="color:purple;">Module Data -{{listValues.length}} Products</h1>
+            </div>
+            <div class="position-absolute p-3" style="right:0;">
+                <span class="pl-2">
+                    <label class="p-2">Delivery To: </label>
+                    <p-dropdown class="px-0" [options]="deliveryOptions" [(ngModel)]="deliveryFilter"
+                        (onChange)=onDeliveryChange($event)></p-dropdown>
+                </span>
+                <span class="pl-2">
+                    <label class="p-2">Status: </label>
+                    <p-dropdown class="px-0" [options]="statusOptions" [(ngModel)]="statusFilter"
+                        (onChange)=onStatusChange($event)></p-dropdown>
+                </span>
+            </div>
+        </div>
+        <div>
+            <p-table [value]="listValues" [scrollable]="true" scrollHeight="250px" [resizableColumns]="true">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+                            {{col.header}}
+                            <p-sortIcon [field]="col.field" ariaLabel="Activate to sort" ariaLabelDesc="Activate to sort in descending order" ariaLabelAsc="Activate to sort in ascending order"></p-sortIcon>
+                        </th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-car>
+                    <tr>
+                        <td *ngFor="let col of columns">
+                            {{car[col.field]}}
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+    </div>
+</div>

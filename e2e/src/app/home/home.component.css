@@ -1,0 +1,104 @@
+.card-display {
+    display: block;
+    text-align: center;
+}
+
+.card-footer-p {
+    height: 30px;
+    /* background: green; */
+    color: white;
+}
+
+::ng-deep .ui-card-body {
+    padding: 10px 0px 0px 0px !important;
+}
+
+.card-icon {
+    font-size: 50px;
+}
+
+.progress-bar {
+    border-radius: 50%;
+    /* width: 100px;
+    height: 100px; */
+    background: #fff;
+    border: 2px solid #666;
+    color: #666;
+    text-align: center;
+    font-size: 30px;
+}
+
+::ng-deep .status-card .ui-card {
+    width: 300px !important;
+    padding: 1em !important;
+}
+
+::ng-deep .status-card i {
+    font-size: 20px !important;
+}
+
+::ng-deep .module-card .ui-card {
+    width: 500px !important;
+    padding: 1em !important;
+}
+
+.module-header {
+    color: purple;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+::ng-deep .details-div label {
+    display: block;
+    font-weight: bold;
+}
+
+.btn-addon {
+    width: 150px;
+    color: white !important;
+    font-weight: bold;
+    height: 30px;
+    padding: 3px;
+    border: 1px solid lightgrey;
+}
+
+.card-carousel {
+    width: 700px;
+}
+
+::ng-deep .card-carousel .ui-carousel-dots-container {
+    display: none;
+}
+
+::ng-deep .card-carousel .ui-carousel .ui-carousel-content .ui-carousel-prev {
+    visibility: hidden;
+}
+
+::ng-deep .card-carousel .ui-carousel .ui-carousel-content .ui-carousel-next {
+    visibility: hidden;
+}
+
+::ng-deep .card-carousel .ui-carousel-items-container .ui-carousel-item {
+    padding: 10px;
+}
+
+::ng-deep .loop-card .ui-card {
+    width: 175px;
+}
+
+.fa-disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+@media screen and (max-width: 1000px) {
+    .loop-card.p-4 {
+        padding: 5px !important;
+    }
+     ::ng-deep .module-table-header .ui-dropdown {
+        min-width: 6.5em !important;
+    }
+    .card-carousel {
+        width: 595px;
+    }
+}
