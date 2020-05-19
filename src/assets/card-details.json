@@ -1,0 +1,41 @@
+[{
+        "color": "#87ceeb",
+        "number": "32",
+        "text": "Total Products"
+    },
+    {
+        "color": "green",
+        "number": "24",
+        "text": "Active Products"
+    },
+    {
+        "color": "#800000",
+        "number": "8",
+        "text": "Inactive Products"
+    },
+    {
+        "color": "#800000",
+        "number": "8",
+        "text": "Inactive Products"
+    },
+    {
+        "color": "green",
+        "number": "24",
+        "text": "Active Products"
+    },
+    {
+        "color": "green",
+        "number": "24",
+        "text": "Active Products"
+    },
+    {
+        "color": "#800000",
+        "number": "8",
+        "text": "Inactive Products"
+    },
+    {
+        "color": "#87ceeb",
+        "number": "32",
+        "text": "Total Products"
+    }
+]
